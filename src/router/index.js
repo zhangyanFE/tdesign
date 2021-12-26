@@ -23,7 +23,6 @@ const defaultRouterList = [
 
 const createRouter = () =>
   new VueRouter({
-    mode: 'history',
     routes: defaultRouterList,
     scrollBehavior() {
       return { x: 0, y: 0 };
@@ -35,6 +34,7 @@ const router = createRouter();
 export function resetRouter() {
   const newRouter = createRouter();
   router.matcher = newRouter.matcher; // reset router
+  router.mode = 'history';
 }
 
 export default router;
